@@ -1,0 +1,12 @@
+{
+  "name": "azure-cassandra-mi-nodejs-getting-started",
+  "version": "1.0.0",
+  "description": "This repository has sample Javascript code to interact with Azure Managed Instance for Apache Cassandra for creation, query and cleanup of data.",
+  "main": "uprofile.js",
+  "scripts": {
+    "start": "node uprofile.js"
+  },
+  "dependencies": {
+    "cassandra-driver": "^4.6.1"
+  }
+}
