@@ -1,57 +1,63 @@
-# Project Name
+---
+page_type: sample
+languages:
+- javascript
+products:
+- azure
+description: "Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters."
+urlFragment: azure-cassandra-mi-nodejs-getting-started
+---
 
-(short, 1-3 sentenced, description of the project)
+# Accessing Azure Managed Instance for Apache Cassandra using Node.js
+Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reduces ongoing maintenance.
 
-## Features
-
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
-
-## Getting Started
-
-### Prerequisites
-
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
-
-### Installation
-
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
+This quick start demonstrates how to connect to a Cassandra Managed instance cluster with Node.js. You'll then build a user profile console app, output as shown in the following image, with sample data.
 
 
-## Demo
+## Running this sample
+* Before you can run this sample, you must have the following pre-requisites:
+	* An Azure Managed Instance for Apache Cassandra cluster. Check out our Quickstart guide [here](https://docs.microsoft.com/azure/managed-instance-apache-cassandra/create-cluster-portal).
+    * Networking access from this application to your Azure Managed Instance for Apache Cassandra cluster (the service only deploys private IP addresses injected into a Virtual network).
+	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher.
+	* [Git](http://git-scm.com/).
+  * [Node.js driver for apache cassandra](https://github.com/datastax/nodejs-driver) // to install the driver - run npm install cassandra-driver.
 
-A demo app is included to show how to use the project.
 
-To run the demo, follow these steps:
+1. Clone this repository:
 
-(Add steps to start up the demo)
+    ```bash
+	git clone git@github.com:Azure-Samples/Azure-Samples/azure-cassandra-mi-node-getting-started.git cassandrami
+    ```
 
-1.
-2.
-3.
+1. Change directories to the repo:
 
-## Resources
+    ```bash
+    cd cassandrami
+    ```
 
-(Any additional resources or related projects)
+1. Install npm dependencies:
 
-- Link to supporting information
-- Link to similar sample
-- ...
+    ```bash
+    npm install
+    ```
+
+1. Next, substitute the contactPoint, username, password, and localDataCenter values in `config.js` with your corresponding Azure Managed Instance for Apache Cassandra values.
+
+    ```javascript
+    module.exports = {
+            username: "Cassandra cluster username",
+            password: "Cassandra cluster password",
+            contactPoint: "I.P. address of a node in your cluster",
+            keySpace: "uprofile",
+            localDataCenter: "datacenter-1"
+    };
+    ```
+
+1. Run `uprofile.js` in a terminal to start your start your node application:
+
+    ```bash
+	npm start
+	```
+
+## About the code
+The code included in this sample is intended to get you quickly started with a Node.js console application that connects to Azure Managed Instance for Apache Cassandra.
